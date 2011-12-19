@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="js/all.js"></script>
+  </head>
+  <body>
+    <canvas id="canvas_element" width="300" height="300" style="border:1px solid #ccc"></canvas>
+    <script>
+	
+	
+		function makeCircle(left, top, lines)
+		{
+			var circle = new fabric.Circle({
+				left: left,
+				top: top,
+				radius: 20,
+				fill: 'green',
+				stroke: 'blue',
+				opacity: 0.5
+			});
+			
+			circle.hasControls = false;
+			circle.lines = lines;
+			
+			return c;
+		}
+		
+		function makeLine(coords)
+		{
+			return new fabric.Line(coords, { selectable: false });
+		}
+		
+		function initObjs()
+		{
+			var result =
+			[
+				new fabric.Circle({ id: "bola1",
+				radius: 20,
+				fill: 'red',
+				stroke: 'blue',
+				left: 100,
+				top: 200,
+				opacity: 0.5}),
+				new fabric.Circle({ id: "bola2",
+				radius: 20,
+				fill: 'pink',
+				stroke: 'blue',
+				left: 200,
+				top: 100,
+				opacity: 0.5}),
+				new fabric.Circle({ id: "bola3",
+				radius: 20,
+				fill: 'green',
+				stroke: 'blue',
+				left: 200,
+				top: 200,
+				opacity: 0.5}),
+				new fabric.Circle({ id: "bola4",
+				radius: 20,
+				fill: 'orange',
+				stroke: 'blue',
+				left: 100,
+				top: 100,
+				opacity: 0.5})
+			]
+
+			return result;
+		}
+	
+		function setupCanvasCircles(circles)
+		{
+			for (var i = 0; i < circles.length; i++)
+			{
+				circles[i].hasControls = false;
+			}
+		}
+	
+		(function()
+		{
+			var canvas_ctx = new fabric.Canvas('canvas_element', { selection : false} );
+			
+			var objs = initObjs();
+
+			canvas_ctx.add(objs[0]);
+			canvas_ctx.add(objs[1]);
+			canvas_ctx.add(objs[2]);
+			canvas_ctx.add(objs[3]);
+
+			setupCanvasCircles(canvas_ctx.getObjects())
+
+
+
+			/*canvas_ctx.observe('object:moving', function(e)
+			{
+				var activeObject = e.memo.target;
+				activeObject.fill = 'blue';
+				console.log(activeObject.get('left'), activeObject.get('top'));
+			});
+
+			canvas_ctx.observe('object:scaling', function(e)
+			{
+				var activeObject = e.memo.target;
+				activeObject.fill = 'yellow';
+				console.log(activeObject.get('left'), activeObject.get('top'));
+			});
+
+			canvas_ctx.observe('object:rotating', function(e)
+			{
+				var activeObject = e.memo.target;
+				activeObject.fill = 'orange';
+				console.log(activeObject.get('left'), activeObject.get('top'));
+			});*/
+
+		})();
+	  
+
+    </script>
+  </body>
+</html>
