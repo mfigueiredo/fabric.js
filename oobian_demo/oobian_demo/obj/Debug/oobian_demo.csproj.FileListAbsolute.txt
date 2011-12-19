@@ -1,0 +1,5 @@
+\\iistests-master\fabric.js\oobian_demo\oobian_demo\bin\oobian_demo.dll
+\\iistests-master\fabric.js\oobian_demo\oobian_demo\bin\oobian_demo.pdb
+\\iistests-master\fabric.js\oobian_demo\oobian_demo\obj\Debug\ResolveAssemblyReference.cache
+\\iistests-master\fabric.js\oobian_demo\oobian_demo\obj\Debug\oobian_demo.dll
+\\iistests-master\fabric.js\oobian_demo\oobian_demo\obj\Debug\oobian_demo.pdb
