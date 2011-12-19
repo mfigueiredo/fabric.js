@@ -9,7 +9,12 @@
     <script>
 	
 	
-		function makeCircle(left, top, lines)
+		function dblClickHandler()
+		{
+			alert('ola');
+		}
+		
+		function makeCircle(left, top, oLines, tLines)
 		{
 			var circle = new fabric.Circle({
 				left: left,
@@ -17,80 +22,90 @@
 				radius: 20,
 				fill: 'green',
 				stroke: 'blue',
-				opacity: 0.5
+				opacity: 1,
 			});
 			
 			circle.hasControls = false;
-			circle.lines = lines;
+			circle.oLines = oLines;
+			circle.tLines = tLines
 			
-			return c;
+			return circle;
 		}
 		
 		function makeLine(coords)
 		{
-			return new fabric.Line(coords, { selectable: false });
+			var line = new fabric.Line(coords,
+				{
+					selectable: false,
+					opacity: 0.5,
+					fill: 'blue'
+				});
+			
+			return line;
 		}
 		
-		function initObjs()
+		function initObjs(ctx)
 		{
-			var result =
-			[
-				new fabric.Circle({ id: "bola1",
-				radius: 20,
-				fill: 'red',
-				stroke: 'blue',
-				left: 100,
-				top: 200,
-				opacity: 0.5}),
-				new fabric.Circle({ id: "bola2",
-				radius: 20,
-				fill: 'pink',
-				stroke: 'blue',
-				left: 200,
-				top: 100,
-				opacity: 0.5}),
-				new fabric.Circle({ id: "bola3",
-				radius: 20,
-				fill: 'green',
-				stroke: 'blue',
-				left: 200,
-				top: 200,
-				opacity: 0.5}),
-				new fabric.Circle({ id: "bola4",
-				radius: 20,
-				fill: 'orange',
-				stroke: 'blue',
-				left: 100,
-				top: 100,
-				opacity: 0.5})
-			]
-
-			return result;
-		}
-	
-		function setupCanvasCircles(circles)
-		{
-			for (var i = 0; i < circles.length; i++)
-			{
-				circles[i].hasControls = false;
-			}
+			ctx.clear();
+			
+			var line = makeLine([100,100, 200,200]),
+				line1 = makeLine([100,100, 200,100]),
+				line2 = makeLine([100,100, 100,200]);
+			
+			ctx.add(line, line1, line2);
+		
+			ctx.add(
+				makeCircle(line.get('x1'), line.get('y1'), [line, line1, line2], null),
+				makeCircle(line.get('x2'), line.get('y2'), null, [line]),
+				makeCircle(line1.get('x2'), line1.get('y2'), null, [line1]),
+				makeCircle(line2.get('x2'), line.get('y2'), null, [line2])
+			);
+			
+			ctx.observe('object:moving', function(e) {
+				var currentCircle = e.memo.target;
+				
+				if (currentCircle.oLines != null)
+				{
+					for(var i = 0; i < currentCircle.oLines.length; i++)
+					{
+						var oLineIterator = currentCircle.oLines[i];
+						oLineIterator.set({'x1': currentCircle.left, 'y1': currentCircle.top});
+					}
+				}
+				
+				if (currentCircle.tLines != null)
+				{
+					for(var i = 0; i < currentCircle.tLines.length; i++)
+					{
+						var tLineIterator = currentCircle.tLines[i];
+						
+						tLineIterator.set({'x2': currentCircle.left, 'y2': currentCircle.top});
+					}
+				}
+				
+				ctx.renderAll();
+			});
 		}
 	
 		(function()
 		{
+			var canvas_element = document.getElementById('canvas_element');
+			//canvas_element.ondblclick = dblClickHandler;
+		
 			var canvas_ctx = new fabric.Canvas('canvas_element', { selection : false} );
+			var objs = initObjs(canvas_ctx);
+			fabric.util.addListener(canvas_element, 'ondblclick', dblClickHandler);
+
 			
-			var objs = initObjs();
-
-			canvas_ctx.add(objs[0]);
-			canvas_ctx.add(objs[1]);
-			canvas_ctx.add(objs[2]);
-			canvas_ctx.add(objs[3]);
-
-			setupCanvasCircles(canvas_ctx.getObjects())
-
-
-
+			//canvas_element.addEventListener('dblclick', dblClickHandler, false);
+			//{
+			//	alert("dentro");
+				/*
+				var activeObject = canvas_ctx.getActiveObject();
+				initObjs(canvas_ctx);*/
+			//});
+			
+			alert("fecho");
 			/*canvas_ctx.observe('object:moving', function(e)
 			{
 				var activeObject = e.memo.target;
