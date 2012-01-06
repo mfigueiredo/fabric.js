@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/oobian/!svn/ver/1173/src/client/frameworks/silverlight/ParticlePhysics/trunk/ForceDissipationFunction
+END
+InverseDistanceForceDissipationFunction.cs
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/oobian/!svn/ver/1173/src/client/frameworks/silverlight/ParticlePhysics/trunk/ForceDissipationFunction/InverseDistanceForceDissipationFunction.cs
+END
+ForceDissipationFunctionFactory.cs
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/oobian/!svn/ver/1173/src/client/frameworks/silverlight/ParticlePhysics/trunk/ForceDissipationFunction/ForceDissipationFunctionFactory.cs
+END
+IForceDissipationFunction.cs
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/oobian/!svn/ver/1173/src/client/frameworks/silverlight/ParticlePhysics/trunk/ForceDissipationFunction/IForceDissipationFunction.cs
+END
+LinearForceDissipationFunction.cs
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/oobian/!svn/ver/1173/src/client/frameworks/silverlight/ParticlePhysics/trunk/ForceDissipationFunction/LinearForceDissipationFunction.cs
+END

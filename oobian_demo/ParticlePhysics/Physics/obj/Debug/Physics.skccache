@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Manifest SkcVersion="4.23.8000" SkcFile="&quot;C:\windows\Microsoft.NET\Framework\v4.0.30319\SharpKit\4\skc4.exe&quot;, last modified at 12/30/2011 20:24:34" DefinedSymbols="TRACE;DEBUG">
+  <SourceFiles>
+    <String>"AssemblyInfo.cs", last modified at 01/02/2012 14:54:02</String>
+    <String>"ConnectorMetadata.cs", last modified at 01/02/2012 11:15:40</String>
+    <String>"Default.aspx.cs", last modified at 01/02/2012 10:23:24</String>
+    <String>"Default.aspx.designer.cs", last modified at 01/02/2012 10:23:24</String>
+    <String>"ForceDissipationFunction\ForceDissipationFunctionFactory.cs", last modified at 01/02/2012 14:47:17</String>
+    <String>"ForceDissipationFunction\IForceDissipationFunction.cs", last modified at 01/02/2012 14:47:20</String>
+    <String>"ForceDissipationFunction\InverseDistanceForceDissipationFunction.cs", last modified at 01/02/2012 14:47:22</String>
+    <String>"ForceDissipationFunction\LinearForceDissipationFunction.cs", last modified at 01/02/2012 14:47:25</String>
+    <String>"MetaDataDisposeEvent.cs", last modified at 01/02/2012 11:15:40</String>
+    <String>"Particle.cs", last modified at 01/02/2012 11:18:06</String>
+    <String>"ParticleConnector.cs", last modified at 01/02/2012 11:15:40</String>
+    <String>"ParticleMetadata.cs", last modified at 01/02/2012 11:15:40</String>
+    <String>"ParticleSimulation.cs", last modified at 01/02/2012 11:18:20</String>
+    <String>"Properties\AssemblyInfo.cs", last modified at 01/02/2012 10:23:24</String>
+    <String>"Vector.cs", last modified at 01/02/2012 10:38:17</String>
+    <String>"C:\Users\mfigueiredo\AppData\Local\Temp\.NETFramework,Version=v4.0.AssemblyAttributes.cs", last modified at 12/19/2011 15:41:23</String>
+  </SourceFiles>
+  <ContentFiles>
+    <String>"Default.aspx", last modified at 01/02/2012 10:22:23</String>
+    <String>"res\Default.js", last modified at 01/02/2012 14:54:08</String>
+    <String>"res\jquery-1.6.4.min.js", last modified at 01/02/2012 10:22:23</String>
+    <String>"Web.config", last modified at 01/02/2012 10:22:23</String>
+  </ContentFiles>
+  <ReferencedFiles>
+    <String>"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Microsoft.CSharp.dll", last modified at 03/18/2010 19:31:26</String>
+    <String>"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\mscorlib.dll", last modified at 03/18/2010 19:31:26</String>
+    <String>"C:\Program Files (x86)\SharpKit\4\Assemblies\v4.0\SharpKit.Html4.dll", last modified at 12/30/2011 20:24:42</String>
+    <String>"C:\Program Files (x86)\SharpKit\4\Assemblies\v4.0\SharpKit.JavaScript.dll", last modified at 12/30/2011 20:24:42</String>
+    <String>"C:\Program Files (x86)\SharpKit\4\Assemblies\v4.0\SharpKit.jQuery.dll", last modified at 12/30/2011 20:24:44</String>
+    <String>"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Configuration.dll", last modified at 03/18/2010 19:31:26</String>
+    <String>"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll", last modified at 03/18/2010 19:31:26</String>
+    <String>"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll", last modified at 03/18/2010 19:31:26</String>
+    <String>"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll", last modified at 03/18/2010 19:31:26</String>
+    <String>"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Drawing.dll", last modified at 03/18/2010 19:31:26</String>
+    <String>"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.EnterpriseServices.dll", last modified at 03/18/2010 19:31:26</String>
+    <String>"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Web.ApplicationServices.dll", last modified at 03/18/2010 19:31:26</String>
+    <String>"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Web.dll", last modified at 03/18/2010 19:31:26</String>
+    <String>"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Web.Extensions.dll", last modified at 03/18/2010 19:31:26</String>
+    <String>"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Web.Services.dll", last modified at 03/18/2010 19:31:26</String>
+    <String>"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.dll", last modified at 03/18/2010 19:31:26</String>
+    <String>"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.Linq.dll", last modified at 03/18/2010 19:31:26</String>
+  </ReferencedFiles>
+  <NoneFiles />
+</Manifest>

@@ -3,127 +3,40 @@
   <head>
     <meta charset="utf-8">
     <script type="text/javascript" src="js/all.js"></script>
+    <script type="text/javascript" src="js/oobian_demo.js"></script>
+    <script type="text/javascript" src="js/physics.js"></script>
+    
     <title>Oobian HTML5 Demo</title>
   </head>
   <body>
     <canvas id="canvas_element" width="300" height="300" style="border:1px solid #ccc"></canvas>
     <script type="text/javascript">
-	
-	
-		function makeCircle(left, top, oLines, tLines)
-		{
-			var circle = new fabric.Circle({
-				left: left,
-				top: top,
-				radius: 20,
-				fill: 'green',
-				stroke: 'blue',
-				opacity: 1
-			});
-			
-			circle.hasControls = false;
-			circle.oLines = oLines;
-			circle.tLines = tLines
-			
-			return circle;
-		}
-		
-		function makeLine(coords)
-		{
-			var line = new fabric.Line(coords,
-				{
-					selectable: false,
-					opacity: 0.5,
-					fill: 'blue'
-				});
-			
-			return line;
-		}
-		
-		function initObjs(ctx)
-		{
-			ctx.clear();
-			
-			var line = makeLine([100,100, 200,200]),
-				line1 = makeLine([100,100, 200,100]),
-				line2 = makeLine([100,100, 100,200]);
-			
-			ctx.add(line, line1, line2);
-		
-			ctx.add(
-				makeCircle(line.get('x1'), line.get('y1'), [line, line1, line2], null),
-				makeCircle(line.get('x2'), line.get('y2'), null, [line]),
-				makeCircle(line1.get('x2'), line1.get('y2'), null, [line1]),
-				makeCircle(line2.get('x2'), line.get('y2'), null, [line2])
-			);
-			
-			ctx.observe('object:moving', function(e) {
-				var currentCircle = e.memo.target;
-				
-				if (currentCircle.oLines != null)
-				{
-					for(var i = 0; i < currentCircle.oLines.length; i++)
-					{
-						var oLineIterator = currentCircle.oLines[i];
-						oLineIterator.set({'x1': currentCircle.left, 'y1': currentCircle.top});
-					}
-				}
-				
-				if (currentCircle.tLines != null)
-				{
-					for(var i = 0; i < currentCircle.tLines.length; i++)
-					{
-						var tLineIterator = currentCircle.tLines[i];
-						
-						tLineIterator.set({'x2': currentCircle.left, 'y2': currentCircle.top});
-					}
-				}
-				
-				ctx.renderAll();
-			});
-		}
+
+		(function () {
+		    var canvas_ctx = new fabric.Canvas('canvas_element', { selection: false });
+		    var objs = initObjs(canvas_ctx);
+
+		    var particle = JsType.Physics$Particle.definition.ctor.call(
+                10, 1, mass, restingForce, forceDissipationFunction);
+
+		    var simulation = JsTypes.Physics$ParticleSimulation.definition.ctor.call(
+                0, 0, 300, 300, 9.8, 1, 1, 50, 4, 2);
+		    //top, left, width, height, gravity, frictionConstant, staticFriction,
+		    //connectionLength, connectionSpringConstant, forceDissipationFunction);
 
 
+		    //simulation.AddParticle();
 
-
-		(function()
-		{
-			var canvas_ctx = new fabric.Canvas('canvas_element', { selection : false} );
-			var objs = initObjs(canvas_ctx);
-
-            function dblClickHandler()
-            {
+		    function dblClickHandler() {
 		        initObjs(canvas_ctx);
 		    }
 
-			fabric.util.addListener(fabric.document, 'dblclick', dblClickHandler);
-            fabric.util.removeListener(canvas_ctx.upperCanvasEl, 'dblclick', dblClickHandler);
-            
-			//alert("fecho");
-			/*canvas_ctx.observe('object:moving', function(e)
-			{
-				var activeObject = e.memo.target;
-				activeObject.fill = 'blue';
-				console.log(activeObject.get('left'), activeObject.get('top'));
-			});
+		    fabric.util.addListener(fabric.document, 'dblclick', dblClickHandler);
+		    fabric.util.removeListener(canvas_ctx.upperCanvasEl, 'dblclick', dblClickHandler);
 
-			canvas_ctx.observe('object:scaling', function(e)
-			{
-				var activeObject = e.memo.target;
-				activeObject.fill = 'yellow';
-				console.log(activeObject.get('left'), activeObject.get('top'));
-			});
-
-			canvas_ctx.observe('object:rotating', function(e)
-			{
-				var activeObject = e.memo.target;
-				activeObject.fill = 'orange';
-				console.log(activeObject.get('left'), activeObject.get('top'));
-			});*/
 
 		})();
 	  
-
     </script>
   </body>
 </html>

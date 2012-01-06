@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="js/all.js"></script>
+    <!--script type="text/javascript" src="js/jquery-1.6.4.js"></script-->
+    <script type="text/javascript" src="js/physics.js"></script>
+    <script type="text/javascript" src="js/oobian_demo.js"></script>
+    
+    <title>Oobian HTML5 Demo</title>
+  </head>
+  <body>
+    <canvas id="canvas_element" width="300" height="300" style="border:1px solid #ccc"></canvas>
+    <script type="text/javascript">
+
+		(function ()
+        {
+		    var canvas_ctx = new fabric.Canvas('canvas_element', { selection: false });
+            var simulation = {};
+
+            function start()
+            {
+                initObjs(canvas_ctx);
+                var forceDissipationFunction = new physics.forceDissipationFunction.LinearForceDissipationFunction(300);
+
+                // objs, top, left, width, height,
+                // gravity, frictionConstant, staticFriction,
+                // connectionLength, connectionSpringConstant, forceDissipationFunction,
+                // particlesMass, particlesRepulsionForce)
+                simulation = integratePhysicsModel(canvas_ctx.getObjects(),
+                        0, 0, 300, 300,
+                        0, 0.9, 15,
+                        80, 500, forceDissipationFunction,
+                        1000, 700);
+
+                setSimulationPositions(simulation);
+            }
+
+            start();
+
+            var timeStep = 1/10; // 10 frames por segundo
+
+            function redraw()
+            {
+                simulation.RunSimulation(timeStep);
+                refreshObjectPositions(simulation);
+                canvas_ctx.renderAll();
+                window.setInterval(redraw, timeStep * 1000);
+            }
+
+            // update position of the objects attached to the moving object
+            canvas_ctx.observe('object:moving', function (e)
+            {
+                var currentCircle = e.memo.target;
+
+                if (currentCircle.outwardLines != null)
+                {
+                    for (var i = 0; i < currentCircle.outwardLines.length; i++)
+                    {
+                        var oLineIterator = currentCircle.outwardLines[i];
+                        oLineIterator.set({ 'x1': currentCircle.left, 'y1': currentCircle.top });
+                    }
+                }
+
+                if (currentCircle.inwardLines != null)
+                {
+                    for (var i = 0; i < currentCircle.inwardLines.length; i++)
+                    {
+                        var tLineIterator = currentCircle.inwardLines[i];
+
+                        tLineIterator.set({ 'x2': currentCircle.left, 'y2': currentCircle.top });
+                    }
+                }
+
+                for (var i in simulation.GetParticles())
+                {
+                    var particle = simulation.GetParticles()[i];
+                    if (particle.GetMetaData() == currentCircle)
+                    {
+                        particle.SetPosition(new physics.Vector(currentCircle.left, currentCircle.top));
+                        particle.SetDoPhysics(false);
+                        return;
+                    }
+                }
+            });
+
+            /*canvas_ctx.observe('mouse:down', function(e)
+            {
+                // suspend physics on selected particle
+                var currentCircle = e.memo.target;
+                for (var i in simulation.GetParticles())
+                {
+                    var particle = simulation.GetParticles()[i];
+                    if (particle.GetMetaData() == currentCircle)
+                    {
+                        particle.SetDoPhysics(false);
+                        return;
+                    }
+                }
+            });*/
+
+            canvas_ctx.observe('mouse:up', function(e)
+            {
+                // resume physics on all particle
+                for (var i in simulation.GetParticles())
+                {
+                    var particle = simulation.GetParticles()[i];
+                    particle.SetDoPhysics(true);
+                }
+            });
+
+            fabric.util.addListener(fabric.document, 'dblclick', start);
+            fabric.util.removeListener(canvas_ctx.upperCanvasEl, 'dblclick', start);
+
+            redraw();
+		})();
+	  
+    </script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+\\iistests-master\fabric.js\oobian_demo\ParticlePhysics\Physics\bin\Physics.dll
+\\iistests-master\fabric.js\oobian_demo\ParticlePhysics\Physics\bin\Physics.pdb
+\\iistests-master\fabric.js\oobian_demo\ParticlePhysics\Physics\bin\SharpKit.Html4.dll
+\\iistests-master\fabric.js\oobian_demo\ParticlePhysics\Physics\bin\SharpKit.JavaScript.dll
+\\iistests-master\fabric.js\oobian_demo\ParticlePhysics\Physics\bin\SharpKit.jQuery.dll
+\\iistests-master\fabric.js\oobian_demo\ParticlePhysics\Physics\bin\SharpKit.JavaScript.xml
+\\iistests-master\fabric.js\oobian_demo\ParticlePhysics\Physics\bin\SharpKit.Html4.xml
+\\iistests-master\fabric.js\oobian_demo\ParticlePhysics\Physics\bin\SharpKit.jQuery.xml
+\\iistests-master\fabric.js\oobian_demo\ParticlePhysics\Physics\obj\Debug\ResolveAssemblyReference.cache
+\\iistests-master\fabric.js\oobian_demo\ParticlePhysics\Physics\obj\Debug\Physics.dll
+\\iistests-master\fabric.js\oobian_demo\ParticlePhysics\Physics\obj\Debug\Physics.pdb

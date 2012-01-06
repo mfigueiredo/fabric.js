@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<script type="text/javascript" src="js/jsclr-4.1.0.js"></script>
+<script type="text/javascript" src="js/ConnectorMetadata.js"></script>
+<script type="text/javascript" src="js/ForceDissipationFunctionFactory.js"></script>
+<script type="text/javascript" src="js/IForceDissipationFunction.js"></script>
+<script type="text/javascript" src="js/InverseDistanceDissipationFunction.js"></script>
+<script type="text/javascript" src="js/LinearForceDissipationFunction.js"></script>
+<script type="text/javascript" src="js/MetaDataDisposeHandlers.js"></script>
+<script type="text/javascript" src="js/ParticleConnector.js"></script>
+<script type="text/javascript" src="js/ParticleMetadata.js"></script>
+<script type="text/javascript" src="js/ParticleSimulation.js"></script>
+<script type="text/javascript" src="js/Vector.js"></script>
